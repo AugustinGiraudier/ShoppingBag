@@ -71,4 +71,23 @@ CREATE TABLE products (
 `description` TEXT NOT NULL,
 `image` VARCHAR(30) NOT NULL,
 `price` FLOAT NOT NULL
-)ENGINE = InnoDB
+)ENGINE = InnoDB;
+
+
+
+INSERT INTO admin (`id`, `username`, `password`)
+VALUES (NULL, 'john', SHA1('John+123'));
+
+INSERT INTO categories(`id`, `name`)
+VALUES (NULL, 'boissons'),(NULL, 'biscuits');
+
+INSERT INTO `customers` (`id`, `forname`, `surname`, `add1`, `add2`, `postcode`, `phone`, `email`, `registered`) 
+VALUES (1, 'Sarah', 'Hamida', 'ligne add1', 'ligne add2', '01800','0612345678','s.hamida@gmail.com',1),
+(2, 'Jean-Benoît', 'Delaroche', 'ligne add1', 'ligne add2','69009', '0796321458','jb.delaroche@gmx.fr',1);
+
+INSERT INTO `isiweb4shop`.`logins` (`id`, `customer_id`, `username`,`password`)
+VALUES (NULL, '1', 'Hamidou', SHA1('Hamidou+123')), (NULL, '2','Delaroche', SHA1('delaroche+123'));
+
+INSERT INTO products(`id`, `cat_id`, `name`, `description`, `image`,`price`)
+VALUES (NULL, '1', 'Saveur Impériale', 'Sachet de thé de qualité supérieure.200 sachets par boite', '', '4.99'),
+(NULL, '1', 'Jus d’Orange de Floride', 'Bouteille d’un litre.','bestorange-juice.jpg', '0.9');
