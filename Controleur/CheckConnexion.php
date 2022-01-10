@@ -20,15 +20,22 @@ $psw = $_POST['psw'];
 require_once "../Modele/ModeleConnexion.php";
 
 $model = new ModeleConnexion();
-$login = ($model->getLogin($uname, $psw))->fetchAll();
+$result = ($model->getLogin($uname, $psw))->fetchAll();
 
-
-if($login == null || count($login) == 0){
+if($result == null || count($result) == 0){
     ReturnError("Utilisateur ou mot de passe incorrect");
 }
 
+$login = $result[0];
+
 //Récupération du compte dans la session :
+if(!isset($login['customer_id'])){
+    ReturnError("Erreur de récupération de l'utilisateur, réessayez...");
+}
+
+$_SESSION['user_id'] = $login['customer_id'];
 
 // Retour à la page principale logé :
+header("location:/index.php");
 
 ?>

@@ -84,6 +84,7 @@
                   <?php
                   if(isset($_SESSION["error"])){
                     echo "<p style='color:#dc3545;'>" . $_SESSION["error"] . "</p>";
+                    $_SESSION["error"] = null;
                   }
                   ?>
 
