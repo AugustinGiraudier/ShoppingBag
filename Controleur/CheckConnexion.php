@@ -17,7 +17,7 @@ $uname = $_POST['uname'];
 $psw = $_POST['psw'];
 
 // Check bonnes informations
-require "../Modele/ModeleConnexion.php";
+require_once "../Modele/ModeleConnexion.php";
 
 $model = new ModeleConnexion();
 $login = ($model->getLogin($uname, $psw))->fetchAll();

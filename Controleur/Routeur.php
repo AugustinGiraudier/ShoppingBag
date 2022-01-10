@@ -25,7 +25,7 @@ class Routeur {
                 if ($_GET['action'] == 'connexion') {
                     $this->ctrlConnexion->connexion();
                 }
-                if ($_GET['action'] == 'nouveauCompte') {
+                else if ($_GET['action'] == 'nouveauCompte') {
                     $this->ctrlNouveauCompte->nouveauCompte();
                 }
 
