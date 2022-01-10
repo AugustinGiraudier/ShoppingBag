@@ -17,7 +17,6 @@ abstract class Modele {
      * 
      * @param string $sql La requête SQL
      * @param array $valeurs Les valeurs associées à la requête
-     * @return PDOStatement Le résultat renvoyé par la requête
      */
     protected function executerRequete($sql, $params = null) {
         if ($params == null) {

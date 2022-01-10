@@ -7,7 +7,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="/Ressources/fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="/Ressources/css/bootstrap.min.css">
     <link rel="stylesheet" href="/Ressources/css/bootstrap-datepicker.css">
@@ -45,7 +45,7 @@
 
             <div class="col-3 ">
               <div class="site-logo">
-                <a href="index.html">BURGR'</a>
+                <a href="index.php">BURGR'</a>
               </div>
             </div>
 
@@ -54,10 +54,10 @@
               <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a href="index.html" class="nav-link">Accueil</a></li>
+                  <li class="active"><a href="index.php" class="nav-link">Accueil</a></li>
                   <li><a href="services.html" class="nav-link">Acheter</a></li>
                   <li><a href="barber-shop.html" class="nav-link">Panier</a></li>
-                  <li><a href="about.html" class="nav-link">Connexion</a></li>
+                  <li><a href="index.php?action=connexion" class="nav-link">Connexion</a></li>
                 </ul>
               </nav>
             </div>

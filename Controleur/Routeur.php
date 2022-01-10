@@ -28,7 +28,11 @@ class Routeur {
                 if ($_GET['action'] == 'nouveauCompte') {
                     $this->ctrlNouveauCompte->nouveauCompte();
                 }
-                
+
+                // Si aucune route ne correspond : affichage de l'accueil
+                else{
+                    $this->ctrlAccueil->accueil();
+                }
             }
             else {  // aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->accueil();
