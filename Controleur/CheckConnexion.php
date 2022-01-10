@@ -4,7 +4,7 @@ $_SESSION["error"] = null;
 
 function ReturnError($msg){
     $_SESSION["error"] = $msg;
-    header("location:/index.php?action=connexion");
+    header("location:" . $_SESSION['BASE_URL'] . "?action=connexion");
     exit();
 }
 
@@ -36,6 +36,6 @@ if(!isset($login['customer_id'])){
 $_SESSION['user_id'] = $login['customer_id'];
 
 // Retour à la page principale logé :
-header("location:/index.php");
+header("location:" . $_SESSION['BASE_URL']);
 
 ?>

@@ -4,7 +4,7 @@ $_SESSION["error"] = null;
 
 function ReturnError($msg){
     $_SESSION["error"] = $msg;
-    header("location:/index.php?action=nouveauCompte");
+    header("location:" . $_SESSION['BASE_URL'] . "?action=nouveauCompte");
     exit();
 }
 
@@ -46,6 +46,6 @@ $custId = $model->CreateCustomer($uname, $psw, $prenom, $nomFamille);
 $_SESSION['user_id'] = $custId;
 
 // Retour à la page principale logé :
-header("location:/index.php");
+header("location:" . $_SESSION['BASE_URL']);
 
 ?>
