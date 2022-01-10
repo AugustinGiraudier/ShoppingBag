@@ -1,30 +1,28 @@
 <?php
 
 require_once 'Controleur/ControleurAccueil.php';
+require_once 'Controleur/ControleurConnexion.php';
 require_once 'Vue/Vue.php';
 
 class Routeur {
 
     private $ctrlAccueil;
+    private $ctrlConnexion;
 
     public function __construct() {
         $this->ctrlAccueil = new ControleurAccueil();
+        $this->ctrlConnexion = new ControleurConnexion();
     }
 
     // Route une requête entrante : exécution l'action associée
     public function routerRequete() {
         try {
             if (isset($_GET['action'])) {
-                /*
-                if ($_GET['action'] == 'billet') {
-                    $idBillet = intval($this->getParametre($_GET, 'id'));
-                    if ($idBillet != 0) {
-                        $this->ctrlBillet->billet($idBillet);
-                    }
-                    else
-                        throw new Exception("Identifiant de billet non valide");
+                
+                if ($_GET['action'] == 'connexion') {
+                    $this->ctrlConnexion->connexion();
                 }
-                */
+                
             }
             else {  // aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->accueil();
