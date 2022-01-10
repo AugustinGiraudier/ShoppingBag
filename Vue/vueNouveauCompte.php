@@ -6,7 +6,7 @@
             <br><br><br>
             <div class="d-flex justify-content-between">
               <h1 class="mb-3 mt-5">Nouveau Compte</h1>
-              <form style="width:60%;" action="/Controleur/CheckNouveauCompte.php" method="POST">
+              <form style="width:60%;" action="index.php?check=nouveauCompte" method="POST">
                 <div class="container">
                   <label for="uname"><b>Nom d'utilisateur</b></label>
                   <input type="text" placeholder="Entrer Nom d'utilisateur" name="uname" required>

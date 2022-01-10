@@ -1,5 +1,5 @@
 <?php
-require_once '../Modele/Modele.php';
+require_once './Modele/Modele.php';
 class ModeleConnexion extends Modele {
 
     // public function getUser($id){

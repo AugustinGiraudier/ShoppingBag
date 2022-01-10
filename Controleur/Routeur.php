@@ -20,7 +20,15 @@ class Routeur {
     // Route une requête entrante : exécution l'action associée
     public function routerRequete() {
         try {
-            if (isset($_GET['action'])) {
+            if(isset($_GET['check'])){
+                if($_GET['check'] == "connexion"){
+                    require "./Controleur/CheckConnexion.php";
+                }
+                else if($_GET['check'] == "nouveauCompte"){
+                    require "./Controleur/CheckNouveauCompte.php";
+                }
+            }
+            else if (isset($_GET['action'])) {
                 
                 if ($_GET['action'] == 'connexion') {
                     $this->ctrlConnexion->connexion();

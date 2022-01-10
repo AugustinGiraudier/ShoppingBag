@@ -33,8 +33,6 @@
       </div>
     </div>
 
-    
-
     <div class="site-section bg-light">
       <div class="container">
         <div class="row justify-content-center  mb-5">
@@ -102,7 +100,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url('./Ressources/images/back2.jpg');">
       <div class="container">

@@ -5,7 +5,7 @@
             <div class="col-md-7">
               <h1 class="mb-3">Connectez vous</h1>
               <br><br>
-              <form action="/Controleur/CheckConnexion.php" method="POST">
+              <form action="index.php?check=connexion" method="POST">
                 <div class="container">
                   <label for="uname"><b>Nom d'utilisateur</b></label>
                   <input type="text" placeholder="Entrer Nom d'utilisateur" name="uname" required>

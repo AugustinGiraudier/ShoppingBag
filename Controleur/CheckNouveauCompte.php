@@ -21,7 +21,7 @@ $psw2 = $_POST['psw2'];
 $prenom = $_POST['prenom'];
 $nomFamille = $_POST['nomFamille'];
 
-require "../Modele/ModeleConnexion.php";
+require "./Modele/ModeleConnexion.php";
 $model = new ModeleConnexion();
 
 // check userName unique :
