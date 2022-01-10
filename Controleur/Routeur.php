@@ -2,16 +2,19 @@
 
 require_once 'Controleur/ControleurAccueil.php';
 require_once 'Controleur/ControleurConnexion.php';
+require_once 'Controleur/ControleurNouveauCompte.php';
 require_once 'Vue/Vue.php';
 
 class Routeur {
 
     private $ctrlAccueil;
     private $ctrlConnexion;
+    private $ctrlNouveauCompte;
 
     public function __construct() {
         $this->ctrlAccueil = new ControleurAccueil();
         $this->ctrlConnexion = new ControleurConnexion();
+        $this->ctrlNouveauCompte = new ControleurNouveauCompte();
     }
 
     // Route une requête entrante : exécution l'action associée
@@ -21,6 +24,9 @@ class Routeur {
                 
                 if ($_GET['action'] == 'connexion') {
                     $this->ctrlConnexion->connexion();
+                }
+                if ($_GET['action'] == 'nouveauCompte') {
+                    $this->ctrlNouveauCompte->nouveauCompte();
                 }
                 
             }

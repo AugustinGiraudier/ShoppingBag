@@ -1,7 +1,7 @@
 <html lang="en">
 
   <head>
-    <title>BURGR' | Connexion</title>
+    <title>BURGR' | Nouveau Compte</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -59,8 +59,6 @@
                 </ul>
               </nav>
             </div>
-
-            
           </div>
         </div>
 
@@ -71,7 +69,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h1 class="mb-3">Connectez vous</h1>
+              <h1 class="mb-3">Nouveau Compte</h1>
               <br><br>
               <form action="/Controleur/CheckConnexion.php" method="POST">
                 <div class="container">
@@ -79,6 +77,9 @@
                   <input type="text" placeholder="Entrer Nom d'utilisateur" name="uname" required>
 
                   <label for="psw"><b>Mot de passe</b></label>
+                  <input type="password" placeholder="Enter Mot de Passe" name="psw" required>
+
+                  <label for="psw"><b>Repetez Mot de passe</b></label>
                   <input type="password" placeholder="Enter Mot de Passe" name="psw" required>
 
                   <button type="submit">Créer mon compte</button>
