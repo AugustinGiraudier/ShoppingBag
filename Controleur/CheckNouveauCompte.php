@@ -35,7 +35,6 @@ if($psw != $psw2){
 }
 
 // check solidité mdp :
-
 if (strlen($psw) < 6 || !preg_match("#[0-9]+#", $psw) || !preg_match("#[a-zA-Z]+#", $psw)) {
     ReturnError("Mot de passe trop faible...\nSa longueur doit etre de 6 au minimum et il doit contenir au moins un chiffre et une lettre");
 }

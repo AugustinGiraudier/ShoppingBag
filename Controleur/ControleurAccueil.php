@@ -15,7 +15,7 @@ class ControleurAccueil {
     public function accueil() {
         //$billets = $this->billet->getBillets();
         $vue = new Vue("Accueil");
-        $vue->generer(array(/*'billets' => null*/));
+        $vue->generer(array());
     }
 
 }

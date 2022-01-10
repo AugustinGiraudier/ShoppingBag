@@ -11,6 +11,7 @@ class Vue {
     public function __construct($action) {
         // Détermination du nom du fichier vue à partir de l'action
         $this->fichier = "Vue/vue" . $action . ".php";
+        $this->titre = $action;
     }
 
     // Génère et affiche la vue
@@ -19,7 +20,7 @@ class Vue {
         $contenu = $this->genererFichier($this->fichier, $donnees);
         // Génération du gabarit commun utilisant la partie spécifique
         $vue = $this->genererFichier('Vue/gabarit.php',
-                array('titre' => $this->titre, 'contenu' => $contenu));
+                array('page_title' => $this->titre, 'contenu' => $contenu));
         // Renvoi de la vue au navigateur
         echo $vue;
     }
