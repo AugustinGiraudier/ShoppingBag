@@ -43,7 +43,7 @@
 
             <div class="col-3 ">
               <div class="site-logo">
-                <a href="index.html">BURGR'</a>
+                <a href="index.php">BURGR'</a>
               </div>
             </div>
 
@@ -52,10 +52,10 @@
               <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a href="index.html" class="nav-link">Accueil</a></li>
+                  <li><a href="index.php" class="nav-link">Accueil</a></li>
                   <li><a href="services.html" class="nav-link">Acheter</a></li>
                   <li><a href="barber-shop.html" class="nav-link">Panier</a></li>
-                  <li><a href="about.html" class="nav-link">Connexion</a></li>
+                  <li class="active"><a href="index.php?action=connexion" class="nav-link">Connexion</a></li>
                 </ul>
               </nav>
             </div>
@@ -71,7 +71,7 @@
             <div class="col-md-7">
               <h1 class="mb-3">Nouveau Compte</h1>
               <br><br>
-              <form action="/Controleur/CheckConnexion.php" method="POST">
+              <form action="/Controleur/CheckNouveauCompte.php" method="POST">
                 <div class="container">
                   <label for="uname"><b>Nom d'utilisateur</b></label>
                   <input type="text" placeholder="Entrer Nom d'utilisateur" name="uname" required>
@@ -80,9 +80,18 @@
                   <input type="password" placeholder="Enter Mot de Passe" name="psw" required>
 
                   <label for="psw"><b>Repetez Mot de passe</b></label>
-                  <input type="password" placeholder="Enter Mot de Passe" name="psw" required>
+                  <input type="password" placeholder="Enter Mot de Passe" name="psw2" required>
+
+                  <?php
+                  if(isset($_SESSION["error"])){
+                    echo "<p style='color:#dc3545;'>" . $_SESSION["error"] . "</p>";
+                  }
+                  ?>
 
                   <button type="submit">Créer mon compte</button>
+                </div>
+                <div class="container">
+                  <span style="color:white" class="psw">Déja un compte ? <a href="index.php?action=connexion">Connectez vous !</a></span>
                 </div>
               </form>
             </div>
