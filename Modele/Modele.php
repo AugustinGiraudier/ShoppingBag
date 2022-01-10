@@ -44,5 +44,4 @@ abstract class Modele {
         }
         return $this->bdd;
     }
-
 }

@@ -9,16 +9,16 @@
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="/Ressources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/Ressources/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="/Ressources/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="/Ressources/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/Ressources/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/Ressources/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="/Ressources/css/aos.css">
+    <link rel="stylesheet" href="./Ressources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Ressources/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="./Ressources/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./Ressources/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./Ressources/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./Ressources/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="./Ressources/css/aos.css">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="/Ressources/css/style.css">
+    <link rel="stylesheet" href="./Ressources/css/style.css">
 
   </head>
 
@@ -69,7 +69,7 @@
       </header>
 
     <div class="ftco-blocks-cover-1">
-      <div class="site-section-cover overlay" data-stellar-background-ratio="0.5" style="background-image: url('/Ressources/images/back2.jpg')">
+      <div class="site-section-cover overlay" data-stellar-background-ratio="0.5" style="background-image: url('./Ressources/images/back2.jpg')">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
@@ -87,7 +87,7 @@
         <div class="row">
           <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="img-years">
-              <img src="/Ressources/images/restaurant.jpg" alt="Image" class="img-fluid">
+              <img src="./Ressources/images/restaurant.jpg" alt="Image" class="img-fluid">
               <div class="year">
                 <span>3 <span>years in <br>excellent service</span></span>
               </div>
@@ -125,7 +125,7 @@
             <div class="nonloop-block-13 owl-carousel d-flex">
               
               <div class="item-1 h">
-                <img src="/Ressources/images/burger_cereales.jpg" alt="Image" class="img-fluid">
+                <img src="./Ressources/images/burger_cereales.jpg" alt="Image" class="img-fluid">
                 <div class="item-1-contents">
                   <h3>BURGR' Aux Céréales</h3>
                   <ul>
@@ -137,7 +137,7 @@
               </div>
 
               <div class="item-1 h">
-                <img src="/Ressources/images/burger_miam.jpg" alt="Image" class="img-fluid">
+                <img src="./Ressources/images/burger_miam.jpg" alt="Image" class="img-fluid">
                 <div class="item-1-contents">
                   <h3>Big BURGR'</h3>
                   <ul>
@@ -152,7 +152,7 @@
               </div>
 
               <div class="item-1 h">
-                <img src="/Ressources/images/black_burger.jpg" alt="Image" class="img-fluid">
+                <img src="./Ressources/images/black_burger.jpg" alt="Image" class="img-fluid">
                 <div class="item-1-contents">
                   <h3>Black BURGR'</h3>
                   <ul>
@@ -174,7 +174,7 @@
     </div>
 
 
-    <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url('/Ressources/images/back2.jpg');">
+    <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url('./Ressources/images/back2.jpg');">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-7 text-center mb-5">
@@ -191,7 +191,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-3">
-            <img src="/Ressources/images/img_1.jpg" alt="Image" class="img-fluid mb-5">
+            <img src="./Ressources/images/img_1.jpg" alt="Image" class="img-fluid mb-5">
             <h2 class="footer-heading mb-3">About Us</h2>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
           </div>
@@ -235,21 +235,21 @@
 
     </div>
 
-    <script src="/Ressources/js/jquery-3.3.1.min.js"></script>
-    <script src="/Ressources/js/jquery-migrate-3.0.0.js"></script>
-    <script src="/Ressources/js/popper.min.js"></script>
-    <script src="/Ressources/js/bootstrap.min.js"></script>
-    <script src="/Ressources/js/owl.carousel.min.js"></script>
-    <script src="/Ressources/js/jquery.sticky.js"></script>
-    <script src="/Ressources/js/jquery.waypoints.min.js"></script>
-    <script src="/Ressources/js/jquery.animateNumber.min.js"></script>
-    <script src="/Ressources/js/jquery.fancybox.min.js"></script>
-    <script src="/Ressources/js/jquery.stellar.min.js"></script>
-    <script src="/Ressources/js/jquery.easing.1.3.js"></script>
-    <script src="/Ressources/js/bootstrap-datepicker.min.js"></script>
-    <script src="/Ressources/js/aos.js"></script>
+    <script src="./Ressources/js/jquery-3.3.1.min.js"></script>
+    <script src="./Ressources/js/jquery-migrate-3.0.0.js"></script>
+    <script src="./Ressources/js/popper.min.js"></script>
+    <script src="./Ressources/js/bootstrap.min.js"></script>
+    <script src="./Ressources/js/owl.carousel.min.js"></script>
+    <script src="./Ressources/js/jquery.sticky.js"></script>
+    <script src="./Ressources/js/jquery.waypoints.min.js"></script>
+    <script src="./Ressources/js/jquery.animateNumber.min.js"></script>
+    <script src="./Ressources/js/jquery.fancybox.min.js"></script>
+    <script src="./Ressources/js/jquery.stellar.min.js"></script>
+    <script src="./Ressources/js/jquery.easing.1.3.js"></script>
+    <script src="./Ressources/js/bootstrap-datepicker.min.js"></script>
+    <script src="./Ressources/js/aos.js"></script>
 
-    <script src="/Ressources/js/main.js"></script>
+    <script src="./Ressources/js/main.js"></script>
 
   </body>
 
