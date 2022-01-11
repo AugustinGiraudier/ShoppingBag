@@ -8,22 +8,23 @@ class ControleurPanier extends Controleur {
 
     public function panier() {
         
-        // Si l'utilisateur est non connecté : 
-        if(!isset($_SESSION['user_id'])){
-            // TODO
-            header("Location:" . $_SESSION['BASE_URL']);
-            exit();
+        $panier = null;
+
+        // Si l'utilisateur est connecté : 
+        if(isset($_SESSION['user_id'])){
+
+            // on recupere ses articles ajoutés :
+            $model = new ModelePanier();
+            $result = $model->GetPanierWithUserId($_SESSION['user_id'])->fetchAll();
+            
+            // Si on a un resultat :
+            if(count($result) != 0){
+                $panier = $result;
+            }
         }
 
-        $model = new ModelePanier();
-        $result = $model->GetPanierWithUserId($_SESSION['user_id'])->fetchAll();
-
-        
-
-        $panier = $result[0];
-
         $vue = new Vue("Panier", $this->username);
-        $vue->generer(array());
+        $vue->generer(array("tab_panier"=>$panier));
     }
 }
 

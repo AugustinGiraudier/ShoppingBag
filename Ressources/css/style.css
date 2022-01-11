@@ -1,3 +1,8 @@
+.card-product{
+  padding: 5px 5px;
+  border: 3px solid #f1f1f1;
+}
+
 /* Bordered form */
 form {
   border: 3px solid #f1f1f1;
