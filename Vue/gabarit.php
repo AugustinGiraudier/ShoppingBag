@@ -24,7 +24,6 @@
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-    
     <div class="site-wrap" id="home-section">
       <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
@@ -54,7 +53,7 @@
                     <a href="services.html" class="nav-link">Acheter</a>
                   </li>
                   <li class="<?php echo $page_title == 'Panier' ? 'active' : '' ?>">
-                    <a href="barber-shop.html" class="nav-link">Panier</a>
+                    <a href="index.php?action=panier" class="nav-link">Panier</a>
                   </li>
                   <li class="<?php echo $page_title == 'Connexion' || $page_title == "NouveauCompte" ? 'active' : '' ?>">
                     <?php if(isset($username)): ?>
