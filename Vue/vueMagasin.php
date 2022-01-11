@@ -2,6 +2,7 @@
       <div class="container">
         <div class="row justify-content-center  mb-5">
           <div class="col-md-7 text-center">
+            <br><br>
             <h3 class="scissors text-center">Notre Magasin</h3>
             <p class="mb-5 lead">Voici les produits que vous pouvez commander sur notre magasin, classé par catégorie : </p>
 

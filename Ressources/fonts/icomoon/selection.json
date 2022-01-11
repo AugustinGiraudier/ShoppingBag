@@ -4706,7 +4706,7 @@
       },
       "attrs": [],
       "properties": {
-        "name": "cut, scissors",
+        "name": "cut",
         "id": 173,
         "order": 1029,
         "prevSize": 28,
