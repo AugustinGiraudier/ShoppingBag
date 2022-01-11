@@ -39,6 +39,9 @@ class Routeur {
                 else if($_GET['check'] == "deconnexion"){
                     require "./Controleur/CheckDeconnexion.php";
                 }
+                else if($_GET['check'] == "supprimerItem"){
+                    require "./Controleur/CheckSuppressionItem.php";
+                }
             }
 
             /* --- Routes --- */

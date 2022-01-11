@@ -30,7 +30,9 @@
                       <p class="mt-0 mb-0">Prix total</p>
                       <p class="mt-0 mb-0"><?= floatval($product['price']) * intval($product['quantity']) . ' €' ?></p>
                     </div>
-                    <img class="ml-3" src="" alt="" style="width:150px;height:30px">
+                    <a href="index.php?check=supprimerItem&orderId=<?= $orderID ?>&itemId=<?= $product['id']?>">
+                      <img class="ml-3 mr-2" src="<?php echo _RESSOURCES_DIR . "/images/trash.svg";?>" alt="" style="width:auto;height:20px">
+                    </a>
                   </div>
                 </div>
               </div>

@@ -15,8 +15,8 @@ class ControleurPanier extends Controleur {
 
             // on recupere ses articles ajoutés :
             $model = new ModelePanier();
-            $result = $model->GetPanierWithUserId($_SESSION['user_id'])->fetchAll();
-            
+            $arr = $model->GetPanierWithUserId($_SESSION['user_id']);
+            $result = $arr['result']->fetchAll();
             // Si on a un resultat :
             if(count($result) != 0){
                 $panier = $result;
@@ -24,7 +24,7 @@ class ControleurPanier extends Controleur {
         }
 
         $vue = new Vue("Panier", $this->username);
-        $vue->generer(array("tab_panier"=>$panier));
+        $vue->generer(array("tab_panier"=>$panier, "orderID" => $arr['orderID']));
     }
 }
 
