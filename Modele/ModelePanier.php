@@ -22,5 +22,26 @@ class ModelePanier extends Modele {
         $sql = "DELETE FROM orderitems where order_id=:order and product_id=:product";
         $this->executerRequete($sql, array("order"=>$orderID, "product"=>$ItemID));
     }
-
+    
+    public function getStock($productID){
+        $sql = "SELECT quantity FROM products where id=:id";
+        $result = $this->executerRequete($sql, array("id"=>$productID));
+        return $result;
+    }
+    
+    public function getOrderId($userID){
+        $sql="SELECT id FROM orders where customer_id=:uID and status=0";
+        $result = $this->executerRequete($sql, array("uID"=>$userID));
+        return $result;
+    }
+    
+    public function creatOrder($userID){
+        $sql="INSERT INTO orders (customer_id, date, status) VALUES (:uID, DATE(NOW()), 0)";
+        $this->executerRequete($sql, array("uID"=>$userID));
+    }
+    
+    public function addProductToOrder($OrderID, $ProductID, $Quantity){
+        $sql="INSERT INTO orderitems (order_id, product_id, quantity) VALUES (:oID, :pID, :q)";
+        $this->executerRequete($sql, array("oID"=>$OrderID, "pID"=>$ProductID, "q"=>$Quantity));
+    }
 }

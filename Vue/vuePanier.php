@@ -41,6 +41,19 @@
           <?php else: ?>
             Vous n'avez aucun article dans le panier...
           <?php endif;?>
+
+            <script>
+
+              let url = "http://localhost/index.php?ajax=ajaxAjoutPanier&userID=14&productID=2&quantity=3";
+
+              fetch(url)
+                  .then(async response => {
+                      const data = await response.json();
+                      console.log(data);
+                  });
+
+            </script>
+
         </div>
       </div>
     </div>

@@ -26,10 +26,15 @@ class Routeur {
     // Route une requête entrante : exécution l'action associée
     public function routerRequete() {
         try {
-
+            
+            if(isset($_GET['ajax'])){
+                if($_GET['ajax'] == "ajaxAjoutPanier"){
+                    require "./Controleur/AjaxAjoutPanier.php";
+                }
+            }
             /* --- Checks --- */
 
-            if(isset($_GET['check'])){
+            else if(isset($_GET['check'])){
                 if($_GET['check'] == "connexion"){
                     require "./Controleur/CheckConnexion.php";
                 }
