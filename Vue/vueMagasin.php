@@ -34,6 +34,7 @@
                   <ul>
                     <li class="d-flex"><span> <?php echo $boissons[$i]["description"] ;?></span> </li>
                     <li class="d-flex"><span class="price ml-auto"><?php echo $boissons[$i]["price"] ; ?>€</span></li>
+                    <li> <object data="./Ressources/images/shopping-cart-solid.svg" width="30" height="30"> </object></li>
                   </ul>
                 </div>
               </div>
@@ -57,6 +58,7 @@
                     <ul>
                         <li class="d-flex"><span> <?php echo $friandises[$i]["description"] ;?></span> </li>
                         <li class="d-flex"><span class="price ml-auto"><?php echo $friandises[$i]["price"] ; ?>€</span></li>
+                        <li> <object data="./Ressources/images/shopping-cart-solid.svg" width="30" height="30"> </object></li>
                     </ul>
                     </div>
                 </div>
@@ -79,6 +81,7 @@
                     <ul>
                         <li class="d-flex"><span> <?php echo $fruits[$i]["description"] ;?></span> </li>
                         <li class="d-flex"><span class="price ml-auto"><?php echo $fruits[$i]["price"] ; ?>€</span></li>
+                        <li> <object data="./Ressources/images/shopping-cart-solid.svg" width="30" height="30"> </object></li>
                     </ul>
                     </div>
                 </div>
