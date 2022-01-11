@@ -9,7 +9,7 @@ class ControleurNouveauCompte extends Controleur {
         // l'utilisateur est déja connecté, on le renvoie à l'accueil
         $this->ReturnHomeIfUserConnected();
 
-        $vue = new Vue("NouveauCompte", $this->username);
+        $vue = new Vue("NouveauCompte", $this->username, false);
         $vue->generer(array());
     }
 }

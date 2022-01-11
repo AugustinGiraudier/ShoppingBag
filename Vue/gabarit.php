@@ -34,7 +34,7 @@
         <div class="site-mobile-menu-body"></div>
       </div>
 
-    <header class="site-navbar site-navbar-target" role="banner" style="background-color: #000000;">
+    <header class="site-navbar site-navbar-target" role="banner" <?php if($showNavBar) echo "style='background-color: #000000'";?>;>
         <div class="container">
           <div class="row align-items-center position-relative">
             <div class="col-3 ">
@@ -49,7 +49,7 @@
                   <li class="<?php echo $page_title == 'Accueil' ? 'active' : '' ?>">
                     <a href="index.php" class="nav-link">Accueil</a>
                   </li>
-                  <li class="<?php echo $page_title == 'Achat' ? 'active' : '' ?>">
+                  <li class="<?php echo $page_title == 'Magasin' ? 'active' : '' ?>">
                     <a href="index.php?action=magasin" class="nav-link">Magasin</a>
                   </li>
                   <li class="<?php echo $page_title == 'Panier' ? 'active' : '' ?>">

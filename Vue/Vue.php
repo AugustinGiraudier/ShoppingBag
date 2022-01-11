@@ -9,12 +9,14 @@ class Vue {
     private $titre;
 
     private $username;
+    private $showNavBar;
 
-    public function __construct($action, $username) {
+    public function __construct($action, $username, $ShowNavBar = true) {
         // Détermination du nom du fichier vue à partir de l'action
         $this->fichier = "Vue/vue" . $action . ".php";
         $this->titre = $action;
         $this->username = $username;
+        $this->showNavBar = $ShowNavBar;
     }
 
     // Génère et affiche la vue
@@ -23,7 +25,7 @@ class Vue {
         $contenu = $this->genererFichier($this->fichier, $donnees);
         // Génération du gabarit commun utilisant la partie spécifique
         $vue = $this->genererFichier('Vue/gabarit.php',
-                array('page_title' => $this->titre, 'username'=>$this->username, 'contenu' => $contenu));
+                array('page_title' => $this->titre, 'username'=>$this->username, "showNavBar"=> $this->showNavBar, 'contenu' => $contenu));
         // Renvoi de la vue au navigateur
         echo $vue;
     }

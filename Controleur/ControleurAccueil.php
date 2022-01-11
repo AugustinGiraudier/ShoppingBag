@@ -8,7 +8,7 @@ class ControleurAccueil extends Controleur{
     // Affiche la liste de tous les billets du blog
     public function accueil() {
         //$billets = $this->billet->getBillets();
-        $vue = new Vue("Accueil", $this->username);
+        $vue = new Vue("Accueil", $this->username, false);
         $vue->generer(array());
     }
 
