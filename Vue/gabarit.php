@@ -57,7 +57,11 @@
                     <a href="barber-shop.html" class="nav-link">Panier</a>
                   </li>
                   <li class="<?php echo $page_title == 'Connexion' || $page_title == "NouveauCompte" ? 'active' : '' ?>">
-                    <a href="index.php?action=connexion" class="nav-link">Connexion</a>
+                    <?php if(isset($username)): ?>
+                      <a href="index.php?check=deconnexion" class="nav-link"><?= $username ?> (déconnexion)</a>
+                    <?php else: ?>
+                      <a href="index.php?action=connexion" class="nav-link">Connexion</a>
+                    <?php endif; ?>
                   </li>
                 </ul>
               </nav>

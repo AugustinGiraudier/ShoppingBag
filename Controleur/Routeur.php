@@ -27,6 +27,9 @@ class Routeur {
                 else if($_GET['check'] == "nouveauCompte"){
                     require "./Controleur/CheckNouveauCompte.php";
                 }
+                else if($_GET['check'] == "deconnexion"){
+                    require "./Controleur/CheckDeconnexion.php";
+                }
             }
             else if (isset($_GET['action'])) {
                 
@@ -53,17 +56,8 @@ class Routeur {
 
     // Affiche une erreur
     private function erreur($msgErreur) {
-        $vue = new Vue("Erreur");
+        $vue = new Vue("Erreur", null);
         $vue->generer(array('msgErreur' => $msgErreur));
-    }
-
-    // Recherche un paramètre dans un tableau
-    private function getParametre($tableau, $nom) {
-        if (isset($tableau[$nom])) {
-            return $tableau[$nom];
-        }
-        else
-            throw new Exception("Paramètre '$nom' absent");
     }
 
 }

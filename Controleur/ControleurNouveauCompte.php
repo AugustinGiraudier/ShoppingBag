@@ -1,14 +1,15 @@
 <?php
 
 require_once 'Vue/Vue.php';
+require_once 'Controleur/Controleur.php';
 
-class ControleurNouveauCompte {
-
-    public function __construct() {
-    }
+class ControleurNouveauCompte extends Controleur {
 
     public function nouveauCompte() {
-        $vue = new Vue("NouveauCompte");
+        // l'utilisateur est déja connecté, on le renvoie à l'accueil
+        $this->ReturnHomeIfUserConnected();
+
+        $vue = new Vue("NouveauCompte", $this->username);
         $vue->generer(array());
     }
 }
