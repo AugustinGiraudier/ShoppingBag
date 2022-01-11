@@ -41,7 +41,15 @@ class ModelePanier extends Modele {
     }
     
     public function addProductToOrder($OrderID, $ProductID, $Quantity){
-        $sql="INSERT INTO orderitems (order_id, product_id, quantity) VALUES (:oID, :pID, :q)";
-        $this->executerRequete($sql, array("oID"=>$OrderID, "pID"=>$ProductID, "q"=>$Quantity));
+        $sql1 = "SELECT id from orderitems where order_id=:oID and product_id=:pID";
+        $result = $this->executerRequete($sql1, array("oID"=>$OrderID, "pID"=>$ProductID))->fetchAll();
+        if(count($result) == 0){
+            $sql="INSERT INTO orderitems (order_id, product_id, quantity) VALUES (:oID, :pID, :q)";
+            $this->executerRequete($sql, array("oID"=>$OrderID, "pID"=>$ProductID, "q"=>$Quantity));
+            return;
+        }
+        $id = $result[0]['id'];
+        $sql="UPDATE orderitems SET quantity=(Select quantity from orderitems where id=:id)+:q where id=:id";
+        $this->executerRequete($sql, array("id"=>$id, "q"=>$Quantity));
     }
 }

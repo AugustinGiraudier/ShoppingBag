@@ -4,8 +4,7 @@ require_once 'Modele/ModelePanier.php';
 $data = null;
 
 // donnees set et utilisateur en droit d'ajouter l'element
-if(!isset($_GET['userID']) 
-    || $_GET['userID'] != $_SESSION['user_id']
+if(!isset($_SESSION['user_id'])
     || !isset($_GET['productID'])
     || !isset($_GET['quantity'])){
     header('Content-type: application/json');

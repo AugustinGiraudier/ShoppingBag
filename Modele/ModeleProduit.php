@@ -3,8 +3,6 @@ require_once './Modele/Modele.php';
 
 class ModeleProduit extends Modele {
 
-
-
     public function getPrice($id){
         $result = $this->executerRequete("SELECT price FROM products WHERE id=:id", array("id" => $id));
         return $result;

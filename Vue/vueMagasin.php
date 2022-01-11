@@ -1,6 +1,3 @@
-
-
-
 <div class="site-section bg-light">
       <div class="container">
         <div class="row justify-content-center  mb-5">
@@ -8,11 +5,6 @@
             <br><br>
             <h3 class="scissors text-center">Notre Magasin</h3>
             <p class="mb-5 lead">Voici les produits que vous pouvez commander sur notre magasin, classé par catégorie : Jus de fruits, Friandises et Fruits</p>
-
-            <!-- <p class="text-center">
-              <a href="" class="btn btn-primary custom-prev">Prev</a>
-              <a href="" class="btn btn-primary custom-next">Next</a>
-            </p> -->
           </div>
 
         </div>
@@ -25,20 +17,35 @@
         <div class="row">
           <div class="col-12">
             <div class="nonloop-block-13 owl-carousel d-flex">
-              
-                 <?php for ($i=0;$i<count($boissons);$i++) :?> 
-              <div class="item-1 h">
-                <img src="<?php echo "./Ressources/productimages/".$boissons[$i]['image']; ?>" alt="Image" class="img-fluid">
-                <div class="item-1-contents">
-                  <h3> <?php echo $boissons[$i]["name"]; ?></h3>
-                  <ul>
-                    <li class="d-flex"><span> <?php echo $boissons[$i]["description"] ;?></span> </li>
-                    <li class="d-flex"><span class="price ml-auto"><?php echo $boissons[$i]["price"] ; ?>€</span></li>
-                    <li> <object data="./Ressources/images/shopping-cart-solid.svg" width="30" height="30"> </object></li>
-                  </ul>
+
+              <script>
+
+                function Buy(produitID, quantity){
+                  let url = "http://localhost/index.php?ajax=ajaxAjoutPanier&productID=" + produitID + "&quantity=" + quantity;
+
+                  fetch(url)
+                      .then(async response => {
+                          const data = await response.json();
+                      });
+                }
+
+              </script>
+
+
+              <?php for ($i=0;$i<count($boissons);$i++) :?>
+                <div class="item-1 h">
+                  <img src="<?php echo "./Ressources/productimages/".$boissons[$i]['image']; ?>" alt="Image" class="img-fluid">
+                  <div class="item-1-contents">
+                    <h3> <?php echo $boissons[$i]["name"]; ?></h3>
+                    <ul>
+                      <li class="d-flex"><span> <?php echo $boissons[$i]["description"] ;?></span> </li>
+                      <li class="d-flex"><span class="price ml-auto"><?php echo $boissons[$i]["price"] ; ?>€</span></li>
+                      <img class="caddie" onclick="Buy(<?= $boissons[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
+                    </ul>
+                  </div>
                 </div>
-              </div>
               <?php endfor; ?>
+
             </div>
           </div>
         </div>  
@@ -58,7 +65,7 @@
                     <ul>
                         <li class="d-flex"><span> <?php echo $friandises[$i]["description"] ;?></span> </li>
                         <li class="d-flex"><span class="price ml-auto"><?php echo $friandises[$i]["price"] ; ?>€</span></li>
-                        <li> <object data="./Ressources/images/shopping-cart-solid.svg" width="30" height="30"> </object></li>
+                        <img class="caddie" onclick="Buy(<?= $friandises[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
                     </ul>
                     </div>
                 </div>
@@ -81,7 +88,7 @@
                     <ul>
                         <li class="d-flex"><span> <?php echo $fruits[$i]["description"] ;?></span> </li>
                         <li class="d-flex"><span class="price ml-auto"><?php echo $fruits[$i]["price"] ; ?>€</span></li>
-                        <li> <object data="./Ressources/images/shopping-cart-solid.svg" width="30" height="30"> </object></li>
+                        <img class="caddie" onclick="Buy(<?= $fruits[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
                     </ul>
                     </div>
                 </div>
