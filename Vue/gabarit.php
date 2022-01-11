@@ -46,11 +46,19 @@
             <div class="col-9  text-right"> 
               <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
-                <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a href="index.php" class="nav-link">Accueil</a></li>
-                  <li><a href="services.html" class="nav-link">Acheter</a></li>
-                  <li><a href="barber-shop.html" class="nav-link">Panier</a></li>
-                  <li><a href="index.php?action=connexion" class="nav-link">Connexion</a></li>
+                <ul class="site-menu main-menu ml-auto ">
+                  <li class="<?php echo $page_title == 'Accueil' ? 'active' : '' ?>">
+                    <a href="index.php" class="nav-link">Accueil</a>
+                  </li>
+                  <li class="<?php echo $page_title == 'Achat' ? 'active' : '' ?>">
+                    <a href="services.html" class="nav-link">Acheter</a>
+                  </li>
+                  <li class="<?php echo $page_title == 'Panier' ? 'active' : '' ?>">
+                    <a href="barber-shop.html" class="nav-link">Panier</a>
+                  </li>
+                  <li class="<?php echo $page_title == 'Connexion' || $page_title == "NouveauCompte" ? 'active' : '' ?>">
+                    <a href="index.php?action=connexion" class="nav-link">Connexion</a>
+                  </li>
                 </ul>
               </nav>
             </div>
