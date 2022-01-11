@@ -9,7 +9,7 @@ class ControleurConnexion extends Controleur {
         // l'utilisateur est déja connecté, on le renvoie à l'accueil
         $this->ReturnHomeIfUserConnected();
         
-        $vue = new Vue("Connexion", $this->username);
+        $vue = new Vue("Connexion", $this->username, false);
         $vue->generer(array());
     }
 }

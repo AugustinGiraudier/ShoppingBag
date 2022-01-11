@@ -14,6 +14,7 @@
 
       <br><br><br>
 
+      <?php if(isset($tab_panier)): ?>
       <?php foreach($tab_panier as $product): ?>
         <div class="card border-dark mt-3 mb-3" style="width: 80%;">
           <div class="card-body text-dark d-flex justify-content-between align-items-center">
@@ -42,6 +43,9 @@
           </div>
         </div>
       <?php endforeach; ?>
+      <?php else: ?>
+        Vous n'avez aucun article dans le panier...
+      <?php endif;?>
 
 
 
