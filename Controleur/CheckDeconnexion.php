@@ -2,6 +2,6 @@
 session_start();
 
 $_SESSION['user_id'] = null;
-header("Location:" . $_SESSION['BASE_URL']);
+header("Location:" . _BASE_URL);
 exit();
 ?>

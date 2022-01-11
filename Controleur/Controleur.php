@@ -28,7 +28,7 @@ abstract class Controleur {
     protected function ReturnHomeIfUserConnected(){
         // l'utilisateur est déja connecté, on le renvoie à l'accueil
         if(isset($this->username)){
-            header("location:" . $_SESSION['BASE_URL']);
+            header("location:" . _BASE_URL);
             exit();
         }
     }
