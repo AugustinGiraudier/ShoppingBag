@@ -20,13 +20,24 @@
 
               <script>
 
-                function Buy(produitID, quantity){
-                  let url = "http://localhost/index.php?ajax=ajaxAjoutPanier&productID=" + produitID + "&quantity=" + quantity;
-
+                
+                function Buy(produitID){
+                  let divinput = document.getElementById("roll-"+produitID);
+                  let value =  divinput.value <= 0 ? '1' : divinput.value;
+                  let url = "http://localhost/index.php?ajax=ajaxAjoutPanier&productID=" + produitID + "&quantity=" + value;
+                  
                   fetch(url)
-                      .then(async response => {
-                          const data = await response.json();
-                      });
+                  .then(async response => {
+                    const data = await response.json();
+                    
+                    if(data.status == "success"){
+                      let pop = new FragPopUp("green", "achat ajouté au panier", 3);
+                    }
+                    else{
+                      let pop = new FragPopUp("red", "erreur : " + data.status, 3);
+                    }
+
+                  });
                 }
 
               </script>
@@ -40,7 +51,10 @@
                     <ul>
                       <li class="d-flex"><span> <?php echo $boissons[$i]["description"] ;?></span> </li>
                       <li class="d-flex"><span class="price ml-auto"><?php echo $boissons[$i]["price"] ; ?>€</span></li>
-                      <img class="caddie" onclick="Buy(<?= $boissons[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <img class="caddie" onclick="Buy(<?= $boissons[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
+                        <input id="roll-<?= $boissons[$i]['id'] ?>" size="10" placeholder="Quantité" type="number">
+                      </div>
                     </ul>
                   </div>
                 </div>
@@ -65,8 +79,10 @@
                     <ul>
                         <li class="d-flex"><span> <?php echo $friandises[$i]["description"] ;?></span> </li>
                         <li class="d-flex"><span class="price ml-auto"><?php echo $friandises[$i]["price"] ; ?>€</span></li>
-                        <img class="caddie" onclick="Buy(<?= $friandises[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
-                    </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <img class="caddie" onclick="Buy(<?= $friandises[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
+                          <input id="roll-<?= $friandises[$i]['id'] ?>" size="10" placeholder="Quantité" type="number">
+                      </div></ul>
                     </div>
                 </div>
                 <?php endfor; ?>
@@ -88,8 +104,10 @@
                     <ul>
                         <li class="d-flex"><span> <?php echo $fruits[$i]["description"] ;?></span> </li>
                         <li class="d-flex"><span class="price ml-auto"><?php echo $fruits[$i]["price"] ; ?>€</span></li>
-                        <img class="caddie" onclick="Buy(<?= $fruits[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
-                    </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <img class="caddie" onclick="Buy(<?= $fruits[$i]['id'] ?>,1)" style="height:30px;width:30px;" src="./Ressources/images/shopping-cart-solid.svg" alt="">
+                          <input id="roll-<?= $fruits[$i]['id'] ?>" size="10" placeholder="Quantité" type="number">
+                      </div></ul>
                     </div>
                 </div>
                 <?php endfor; ?>

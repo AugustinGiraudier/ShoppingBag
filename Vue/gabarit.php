@@ -7,6 +7,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700&display=swap" rel="stylesheet">
 
+    <script src="./Ressources/js/PopUp.js"></script>
+
     <link rel="stylesheet" href="/Ressources/fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="./Ressources/css/bootstrap.min.css">
@@ -16,6 +18,7 @@
     <link rel="stylesheet" href="./Ressources/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./Ressources/fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="./Ressources/css/aos.css">
+    <link rel="stylesheet" href="./Ressources/css/popup.css">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="./Ressources/css/style.css">
@@ -79,7 +82,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-3">
-            <img src="./Ressources/images/img_1.jpg" alt="Image" class="img-fluid mb-5">
+            <img src="" alt="Image" class="img-fluid mb-5">
             <h2 class="footer-heading mb-3">About Us</h2>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
           </div>
