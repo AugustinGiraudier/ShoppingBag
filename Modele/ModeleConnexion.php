@@ -10,6 +10,9 @@ class ModeleConnexion extends Modele {
     public function getLogin($uname, $psw){
         return $this->executerRequete("SELECT * FROM logins WHERE username=:uname and password=SHA1(:psw)", array("uname" => $uname, "psw" => $psw));
     }
+    public function getLoginAdmin($uname, $psw){
+        return $this->executerRequete("SELECT id FROM admin WHERE username=:uname and password=:psw", array("uname" => $uname, "psw" => $psw));
+    }
 
     public function CreateCustomer($uname, $psw, $prenom, $nom){
         // creation du customer :

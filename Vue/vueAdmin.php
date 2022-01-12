@@ -1,21 +1,27 @@
 <div class="site-section bg-light">
       <div class="container">
-        <div class="row justify-content-center  mb-5">
-          <div class="col-md-7 text-center">
-            <br><br>
-            <h3 class="scissors text-center">Liste des commandes en cours</h3>
-          </div>
+        <?php if($AdminIsConnected): ?>
+        
+        <div class="d-flex flex-row-reverse mt-3">
+          <a href="index.php?action=admin&step=deconnexion">Déconnexion administrateur</a>
+        </div>
 
+        <div class="row justify-content-center  mb-5">
+        <div class="col-md-7 text-center">
+          <br><br>
+          <h3 class="scissors text-center">Liste des commandes en cours</h3>
+        </div>
+          
         </div>
         <!-- de la -->
-
+        
         <div id="admin-table"></div>
-
-
+        
+        
         <script>
-
+          
           DisplayTable();
-
+          
           function DeleteOrder(orderID){
             let url = "http://localhost/index.php?ajax=supressionOrder&orderID=" + orderID;
             
@@ -29,7 +35,7 @@
               else{
                 let pop = new FragPopUp("red", "erreur : " + data.status, 3);
               }
-
+              
             });
             DisplayTable();
           }
@@ -46,11 +52,11 @@
               else{
                 let pop = new FragPopUp("red", "erreur : " + data.status, 3);
               }
-
+              
             });
             DisplayTable();
           }
-
+          
           function DisplayTable(){
             let url = "http://localhost/index.php?ajax=getAdminTable";
             
@@ -61,10 +67,37 @@
               table_div.innerHTML = data;
             });
           }
+          
+          </script>
+          <?php else: ?>
 
-        </script>
 
+          <div class="row justify-content-center  mb-5">
+          <div class="col-md-7 text-center">
+            <br><br>
+            <h3 class="scissors text-center">Connexion Admin</h3>
+          </div>
 
-        <!-- jusqu'a la  -->
-      </div>
-    </div>
+          <form action="index.php?action=admin" method="POST">
+            <div class="container">
+              <label for="uname"><b>Nom d'utilisateur</b></label>
+              <input type="text" placeholder="Entrer Nom d'utilisateur" name="uname" required>
+
+              <label for="psw"><b>Mot de passe</b></label>
+              <input type="password" placeholder="Enter Mot de Passe" name="psw" required>
+
+              <?php
+              if(isset($ERROR)){
+                echo "<p style='color:#dc3545;'>" . $ERROR . "</p>";
+              }
+              ?>
+
+              <button type="submit">Connexion</button>
+            </div>
+          </form>
+
+        <?php endif; ?>
+
+<!-- jusqu'a la  -->
+</div>
+</div>
