@@ -52,4 +52,13 @@ class ModelePanier extends Modele {
         $sql="UPDATE orderitems SET quantity=(Select quantity from orderitems where id=:id)+:q where id=:id";
         $this->executerRequete($sql, array("id"=>$id, "q"=>$Quantity));
     }
+    
+    public function getOrders(){
+        $sql = "SELECT o.id, o.payment_type, o.date, o.status, d.firstname, d.lastname, d.add1, d.city, d.email 
+        FROM orders o
+        left outer join delivery_addresses d on o.delivery_add_id=d.id
+        where o.status!=0";
+        $result = $this->executerRequete($sql);
+        return $result;
+    }
 }

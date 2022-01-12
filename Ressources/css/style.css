@@ -1,4 +1,8 @@
 
+.pointable:hover{
+  cursor:pointer;
+}
+
 .caddie:hover{
   cursor: pointer;
 }

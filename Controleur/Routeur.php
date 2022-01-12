@@ -5,6 +5,7 @@ require_once 'Controleur/ControleurConnexion.php';
 require_once 'Controleur/ControleurNouveauCompte.php';
 require_once 'Controleur/ControleurPanier.php';
 require_once 'Controleur/ControleurMagasin.php';
+require_once 'Controleur/ControleurAdmin.php';
 require_once 'Vue/Vue.php';
 
 class Routeur {
@@ -14,6 +15,7 @@ class Routeur {
     private $ctrlNouveauCompte;
     private $ctrlPanier;
     private $ctrlMagasin;
+    private $ctrlAdmin;
 
     public function __construct() {
         $this->ctrlAccueil = new ControleurAccueil();
@@ -21,6 +23,7 @@ class Routeur {
         $this->ctrlNouveauCompte = new ControleurNouveauCompte();
         $this->ctrlPanier = new ControleurPanier();
         $this->ctrlMagasin= new ControleurMagasin();
+        $this->ctrlAdmin = new ControleurAdmin();
     }
 
     // Route une requête entrante : exécution l'action associée
@@ -64,6 +67,9 @@ class Routeur {
                 }
                 else if ($_GET['action'] == 'panier') {
                     $this->ctrlPanier->panier();
+                }
+                else if ($_GET['action'] == 'admin') {
+                    $this->ctrlAdmin->admin();
                 }
 
                 // Si aucune route ne correspond : affichage de l'accueil
