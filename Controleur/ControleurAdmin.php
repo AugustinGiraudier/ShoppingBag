@@ -9,18 +9,15 @@ class ControleurAdmin extends Controleur{
     public function admin() {
 
         // verifier que la personne est admin connectée :
+        $_SESSION['admin_id'] = 1;
+        if(!isset($_SESSION['admin_id'])){
+            header("Location:" . _BASE_URL);
+            exit();
+        }
 
-        // la déconnecter pour plus de securité :
-
-        // récupération des orders cloturées :
-        
-        require_once 'Modele/ModelePanier.php';
-        $model = new ModelePanier();
-        $result = $model->getOrders()->fetchAll();
-        
         // afficher la vue :
         $vue = new Vue("Admin", $this->username);
-        $vue->generer(array("orders"=>$result));
+        $vue->generer(array());
     }
 
 }

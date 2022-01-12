@@ -34,6 +34,15 @@ class Routeur {
                 if($_GET['ajax'] == "ajaxAjoutPanier"){
                     require "./Controleur/AjaxAjoutPanier.php";
                 }
+                else if($_GET['ajax'] == "supressionOrder"){
+                    require "./Controleur/AjaxSupressionOrder.php";
+                }
+                else if($_GET['ajax'] == "sendOrder"){
+                    require "./Controleur/AjaxSendOrder.php";
+                }
+                else if($_GET['ajax'] == "getAdminTable"){
+                    require "./Controleur/AjaxGetOrdersTable.php";
+                }
             }
             /* --- Checks --- */
 

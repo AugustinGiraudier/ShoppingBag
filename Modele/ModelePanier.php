@@ -61,4 +61,16 @@ class ModelePanier extends Modele {
         $result = $this->executerRequete($sql);
         return $result;
     }
+    
+    public function deleteOrder($orderID){
+        $sql="DELETE FROM orders where id=:id";
+        return $this->executerRequete($sql, array("id"=>$orderID));
+    }
+    
+    public function sendOrder($orderID){
+        $sql="UPDATE orders
+        SET status = 10
+        WHERE id=:id";
+        return $this->executerRequete($sql, array("id"=>$orderID));
+    }
 }
