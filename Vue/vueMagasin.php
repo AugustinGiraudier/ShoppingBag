@@ -37,7 +37,6 @@
       </script>
 
       <?php foreach($products as $cat => $liste):?>
-        <br><br><br>
         <h3 class="scissors"> <?=$cat?> </h3>
         <div class="row">
           <div class="col-12">
@@ -57,12 +56,13 @@
                     </ul>
                   </div>
                 </div>
-              <?php endforeach; ?>
+                <?php endforeach; ?>
             </div>
           </div>
         </div>
-      <?php endforeach;?>
-
-    <!-- jusqu'a la  -->
-  </div>
-</div>
+        <br><br><br>
+        <?php endforeach;?>
+        
+        <!-- jusqu'a la  -->
+      </div>
+    </div>

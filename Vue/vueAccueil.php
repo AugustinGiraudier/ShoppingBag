@@ -5,7 +5,7 @@
             <div class="col-md-7">
               <h1 class="mb-3">Bien plus qu'un simple restaurant</h1>
               <p>Découvrez nos produits dégotés chez nos producteurs locaux</p>
-              <p><a href="#" class="btn btn-primary">Contactez nous</a></p>
+              <p><a href="index.php?action=magasin" class="btn btn-primary">Commencez la visite !</a></p>
             </div>
           </div>
         </div>
@@ -19,15 +19,15 @@
             <div class="img-years">
               <img src="./Ressources/images/restaurant.jpg" alt="Image" class="img-fluid">
               <div class="year">
-                <span>3 <span>years in <br>excellent service</span></span>
+                <span>7<span>années<br>d'excellents services</span></span>
               </div>
             </div>
 
           </div>
           <div class="col-lg-5 ml-auto pl-lg-5 text-center">
-            <h3 class="scissors text-center">Welcome To BURGR'!</h3>
-            <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
-            <p><a href="#" class="btn btn-primary">Learn More</a></p>
+            <h3 class="scissors text-center">Bienvenue chez BakeR'!</h3>
+            <p class="mb-5 lead">Profitez de notre service de livraison de friandises et petit déjeuner à la maison !</p>
+            <p><a href="index.php?action=nouveauCompte" class="btn btn-primary">Je m'inscris</a></p>
           </div>
         </div>
       </div>
@@ -39,8 +39,8 @@
         <div class="row justify-content-center text-center">
           <div class="col-7 text-center mb-5">
             <h2 class="text-white scissors primary-color-icon text-center">Des produits de qualité</h2>
-            <p class="lead text-white mb-5">Des produits sains, respectant l'écologie, au meilleure prix !</p>
-            <p><a href="#" class="btn btn-primary">Contactez-nous</a></p>
+            <p class="lead text-white mb-5">Des produits sains, au meilleure prix et tout ça dans le respect de l'environnement !</p>
+            <p><a href="index.php?action=magasin" class="btn btn-primary">Voir les produits</a></p>
           </div>
         </div>
       </div>

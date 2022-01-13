@@ -3,6 +3,10 @@
   cursor:pointer;
 }
 
+.title-red{
+  color: #dc3545;
+}
+
 /* Full-width inputs */
 input[type=text], input[type=password] {
   width: 100%;
