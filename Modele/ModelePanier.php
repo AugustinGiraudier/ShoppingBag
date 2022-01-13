@@ -11,10 +11,24 @@ class ModelePanier extends Modele {
         $result = $this->executerRequete($sql, array("oId"=>$orderID));
         return array('result' =>$result, "orderID" => $orderID);
     }
+    public function GetPanierWithSessionId($sessionID){
+        $sql1 = "SELECT id FROM orders WHERE status=0 AND session=:id";
+        $orderID = $this->executerRequete($sql1, array("id"=>$sessionID))->fetchAll()[0]['id'];
+        $sql = "SELECT p.id, p.name, p.description, p.image, p.price, o.quantity 
+        FROM orderitems o, products p 
+        WHERE o.order_id=:oId AND o.product_id = p.id;";
+        $result = $this->executerRequete($sql, array("oId"=>$orderID));
+        return array('result' =>$result, "orderID" => $orderID);
+    }
     
     public function GetCustomerID($OrderID){
         $sql = "SELECT customer_id from orders where id=:orderid and status=0";
-        $result = $this->executerRequete($sql, array("orderid"=>$OrderID))->fetchAll()[0]['customer_id'];
+        $result = $this->executerRequete($sql, array("orderid"=>$OrderID));
+        return $result;
+    }
+    public function GetSessionID($OrderID){
+        $sql = "SELECT session from orders where id=:orderid and status=0";
+        $result = $this->executerRequete($sql, array("orderid"=>$OrderID));
         return $result;
     }
     
@@ -34,10 +48,21 @@ class ModelePanier extends Modele {
         $result = $this->executerRequete($sql, array("uID"=>$userID));
         return $result;
     }
+    public function getSessionOrderID($sessionID){
+        $sql="SELECT id FROM orders where session=:sID and status=0";
+        $result = $this->executerRequete($sql, array("sID"=>$sessionID));
+        return $result;
+    }
     
     public function creatOrder($userID){
         $sql="INSERT INTO orders (customer_id, date, status) VALUES (:uID, DATE(NOW()), 0)";
         $this->executerRequete($sql, array("uID"=>$userID));
+        return $this->getLastId();
+    }
+    public function creatSessionOrder($sessionID){
+        $sql="INSERT INTO orders (customer_id, session, date, status) VALUES (-1, :sID, DATE(NOW()), 0)";
+        $this->executerRequete($sql, array("sID"=>$sessionID));
+        return $this->getLastId();
     }
     
     public function addProductToOrder($OrderID, $ProductID, $Quantity){

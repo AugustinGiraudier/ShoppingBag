@@ -4,8 +4,7 @@ require_once 'Modele/ModelePanier.php';
 $data = null;
 
 // donnees set et utilisateur en droit d'ajouter l'element
-if(!isset($_SESSION['user_id'])
-    || !isset($_GET['productID'])
+if( !isset($_GET['productID'])
     || !isset($_GET['quantity'])){
     header('Content-type: application/json');
     $data = ['status' => 'Parametres incorrects'];
@@ -34,13 +33,27 @@ if(intval($_GET['quantity']) > $stock || intval($_GET['quantity']) <= 0){
 }
 
 // on regarde si une order est en cours :
-$result = $model->getOrderId($_SESSION['user_id'])->fetchAll();
+
 $orderID = null;
-// si pas d'order on la crée
-if(count($result) == 0){
-    $model->creatOrder($_SESSION['user_id']);
-}else{
-    $orderID = $result[0]['id'];
+
+// Si l'utilisateur est connecté :
+if(isset($_SESSION['user_id'])){
+    $result = $model->getOrderId($_SESSION['user_id'])->fetchAll();
+    // si pas d'order on la crée
+    if(count($result) == 0){
+        $orderID = $model->creatOrder($_SESSION['user_id']);
+    }else{
+        $orderID = $result[0]['id'];
+    }
+}
+else{
+    $result = $model->getSessionOrderID(session_id())->fetchAll();
+    // si pas d'order on la crée
+    if(count($result) == 0){
+        $orderID = $model->creatSessionOrder(session_id());
+    }else{
+        $orderID = $result[0]['id'];
+    }
 }
 
 // on ajoute le produit à l'order :

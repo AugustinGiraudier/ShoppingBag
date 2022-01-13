@@ -11,16 +11,19 @@ class ControleurPanier extends Controleur {
         $panier = null;
 
         // Si l'utilisateur est connecté : 
+        
+        // on recupere ses articles ajoutés :
+        $model = new ModelePanier();
+        $arr = null;
         if(isset($_SESSION['user_id'])){
-
-            // on recupere ses articles ajoutés :
-            $model = new ModelePanier();
             $arr = $model->GetPanierWithUserId($_SESSION['user_id']);
-            $result = $arr['result']->fetchAll();
-            // Si on a un resultat :
-            if(count($result) != 0){
-                $panier = $result;
-            }
+        }else{
+            $arr = $model->GetPanierWithSessionId(session_id());
+        }
+        $result = $arr['result']->fetchAll();
+        // Si on a un resultat :
+        if(count($result) != 0){
+            $panier = $result;
         }
 
         $vue = new Vue("Panier", $this->username);
