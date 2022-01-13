@@ -3,22 +3,34 @@ require_once './Modele/Modele.php';
 class ModelePanier extends Modele {
 
     public function GetPanierWithUserId($id){
-        $sql1 = "SELECT id FROM orders WHERE status=0 AND customer_id=:id";
-        $orderID = $this->executerRequete($sql1, array("id"=>$id))->fetchAll()[0]['id'];
+        $sql1 = "SELECT id, status FROM orders WHERE (status=0 or status=1) AND customer_id=:id";
+        $result1 = $this->executerRequete($sql1, array("id"=>$id))->fetchAll();
+        $orderID = null;
+        $status = null;
+        if(isset($result1[0])){
+            $orderID = $result1[0]['id'];
+            $status = $result1[0]['status'];
+        }
         $sql = "SELECT p.id, p.name, p.description, p.image, p.price, o.quantity 
         FROM orderitems o, products p 
         WHERE o.order_id=:oId AND o.product_id = p.id;";
         $result = $this->executerRequete($sql, array("oId"=>$orderID));
-        return array('result' =>$result, "orderID" => $orderID);
+        return array('result' =>$result, "orderID" => $orderID, 'orderStatus'=>$status);
     }
     public function GetPanierWithSessionId($sessionID){
-        $sql1 = "SELECT id FROM orders WHERE status=0 AND session=:id";
-        $orderID = $this->executerRequete($sql1, array("id"=>$sessionID))->fetchAll()[0]['id'];
+        $sql1 = "SELECT id, status FROM orders WHERE (status=0 or status=1) AND session=:id";
+        $result1 = $this->executerRequete($sql1, array("id"=>$sessionID))->fetchAll();
+        $orderID = null;
+        $status = null;
+        if(isset($result1[0])){
+            $orderID = $result1[0]['id'];
+            $status = $result1[0]['status'];
+        }
         $sql = "SELECT p.id, p.name, p.description, p.image, p.price, o.quantity 
         FROM orderitems o, products p 
         WHERE o.order_id=:oId AND o.product_id = p.id;";
         $result = $this->executerRequete($sql, array("oId"=>$orderID));
-        return array('result' =>$result, "orderID" => $orderID);
+        return array('result' =>$result, "orderID" => $orderID, 'orderStatus'=>$status);
     }
     
     public function GetCustomerID($OrderID){
@@ -97,5 +109,18 @@ class ModelePanier extends Modele {
         SET status = 10
         WHERE id=:id";
         return $this->executerRequete($sql, array("id"=>$orderID));
+    }
+    
+    public function addAdress($orderID, $prenom, $nom, $add, $city, $pcode, $phone, $email){
+        $sql="INSERT INTO delivery_addresses (firstname, lastname, add1, city, postcode, phone, email) values (:prenom,:nom,:add,:city,:pcode,:phone,:email);";
+        $this->executerRequete($sql, array("prenom"=>$prenom, "nom" => $nom, "add"=>$add, "city"=>$city, "pcode"=>$pcode, "phone"=>$phone, "email"=>$email));
+        $add_id = $this->getLastId();
+        $sql2 = "UPDATE orders SET delivery_add_id = :add_id, status = 1 WHERE id=:oID";
+        $this->executerRequete($sql2, array("add_id"=>$add_id, "oID"=>$orderID));
+    }
+    
+    public function setPaiement($paiement, $orderID){
+        $sql = "UPDATE orders SET payment_type=:pay, status=2 where id=:oID";
+        $this->executerRequete($sql, array("oID"=>$orderID, "pay"=>$paiement));
     }
 }

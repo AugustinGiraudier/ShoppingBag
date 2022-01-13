@@ -26,7 +26,7 @@ if(count($result) == 0){
 $stock = $result[0]['quantity'];
 
 if(intval($_GET['quantity']) > $stock || intval($_GET['quantity']) <= 0){
-    $data = ['status' => 'quantite indisponble'];
+    $data = ['status' => 'quantite indisponble (reste : ' . $stock . ')'];
 
     echo json_encode($data, JSON_PRETTY_PRINT);
     exit();

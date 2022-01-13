@@ -96,8 +96,11 @@
             </div>
           </form>
 
-        <?php endif; ?>
 
-<!-- jusqu'a la  -->
-</div>
+          
+          <?php endif; ?>
+          
+          <!-- jusqu'a la  -->
+        </div>
+        <p class="text-light">f18bd055eec95965ee175fa9badd35ae6dbeb98f</p>
 </div>
