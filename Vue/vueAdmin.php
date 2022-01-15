@@ -63,9 +63,9 @@
                   else{
                     let pop = new FragPopUp("red", "erreur : " + data.status, 3);
                   }
+                  DisplayTable();
                   
                 });
-                DisplayTable();
               }
               function SendOrder(orderID){
                 let url = "http://localhost/index.php?ajax=sendOrder&orderID=" + orderID;
@@ -80,9 +80,9 @@
                   else{
                     let pop = new FragPopUp("red", "erreur : " + data.status, 3);
                   }
+                  DisplayTable();
                   
                 });
-                DisplayTable();
               }
               
               function DisplayTable(){

@@ -35,7 +35,7 @@ ob_start("ReturnTable");
             <th class="align-middle" scope="col">Paiement</th>
             <th class="align-middle" scope="col">Date</th>
             <th class="align-middle" scope="col">Statut</th>
-            <th class="align-middle" scope="col">Envoyé</th>
+            <th class="align-middle" scope="col">Envoyer</th>
             <th class="align-middle" scope="col">Supprimer</th>
           </tr>
 
