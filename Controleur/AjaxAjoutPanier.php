@@ -43,15 +43,28 @@ if(isset($_SESSION['user_id'])){
     if(count($result) == 0){
         $orderID = $model->creatOrder($_SESSION['user_id']);
     }else{
+        // on verifie que l'order n'est pas en cour de paiement :
+        if($result[0]['status'] == 1 || $result[0]['status'] == '1'){
+            $data = ['status' => "Ajout impossibe, panier en cours d'achat..."];
+            echo json_encode($data, JSON_PRETTY_PRINT);
+            exit();
+        }
         $orderID = $result[0]['id'];
     }
 }
+// sinon on révupère l'order de la session :
 else{
     $result = $model->getSessionOrderID(session_id())->fetchAll();
     // si pas d'order on la crée
     if(count($result) == 0){
         $orderID = $model->creatSessionOrder(session_id());
     }else{
+        // on verifie que l'order n'est pas en cour de paiement :
+        if($result[0]['status'] == 1 || $result[0]['status'] == '1'){
+            $data = ['status' => "Ajout impossibe, panier en cours d'achat..."];
+            echo json_encode($data, JSON_PRETTY_PRINT);
+            exit();
+        }
         $orderID = $result[0]['id'];
     }
 }

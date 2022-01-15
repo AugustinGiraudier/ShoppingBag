@@ -20,7 +20,7 @@
             return;
           }
           let url = "http://localhost/index.php?ajax=ajaxAjoutPanier&productID=" + produitID + "&quantity=" + value;
-          
+          console.log(url);
           fetch(url)
           .then(async response => {
             const data = await response.json();

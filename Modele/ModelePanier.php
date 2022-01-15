@@ -56,12 +56,12 @@ class ModelePanier extends Modele {
     }
     
     public function getOrderId($userID){
-        $sql="SELECT id FROM orders where customer_id=:uID and status=0";
+        $sql="SELECT id, status FROM orders where customer_id=:uID and (status=0 or status=1)";
         $result = $this->executerRequete($sql, array("uID"=>$userID));
         return $result;
     }
     public function getSessionOrderID($sessionID){
-        $sql="SELECT id FROM orders where session=:sID and status=0";
+        $sql="SELECT id, status FROM orders where session=:sID and (status=0 or status=1)";
         $result = $this->executerRequete($sql, array("sID"=>$sessionID));
         return $result;
     }
