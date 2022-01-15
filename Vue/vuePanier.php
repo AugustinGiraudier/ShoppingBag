@@ -70,8 +70,12 @@
             
           <!-- Debut adresse entrée -->
           
-          <div class="text-left col-md-7">
-            <h3 class="scissors">Votre adresse</h3>
+          <div class="text-left col-md-7 mb-0">
+            <h3 class="scissors mb-0">Votre adresse</h3>
+          </div>
+
+          <div class="d-flex mb-3">
+            <a class="ml-3 align-self-left" href="index.php?action=panier">← Retour au panier</a>
           </div>
 
           <form action="index.php?action=panier" method="POST">
@@ -136,6 +140,8 @@
               <button class="mt-5" type="submit">Continuer</button>
             </div>
           </form>
+
+          <a class="ml-3 float-left" href="index.php?action=panier&cancel=true">← Annuler ma commande</a>
 
           <!-- Fin payement entrée -->
 

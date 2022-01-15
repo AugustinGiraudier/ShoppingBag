@@ -63,8 +63,8 @@ class ControleurPanier extends Controleur {
                 $coutTotal += floatval($product['price']) * intval($product['quantity']);
             }
         }
-        else if($step == "payement" && isset($_POST['pay'])){
-            if($_POST['pay'] == "cheque" || $_POST['pay'] == "paypal"){
+        else if($step == "payement"){
+            if(isset($_POST['pay']) && ($_POST['pay'] == "cheque" || $_POST['pay'] == "paypal")){
                 $stock_error = $model->removeStocksOfOrder($arr['orderID']);
                 if($stock_error != false){
                     $model->setPaiement($_POST['pay'], $arr['orderID'], 0);
@@ -76,6 +76,11 @@ class ControleurPanier extends Controleur {
                     header("location:" . _BASE_URL . "?action=panier&success_payment=true");
                     exit();
                 }
+            }
+            else if(isset($_GET['cancel'])){
+                $model->setPaiement($_POST['pay'], $arr['orderID'], 0);
+                header("location:" . _BASE_URL . "?action=panier");
+                exit();
             }
         }
 
