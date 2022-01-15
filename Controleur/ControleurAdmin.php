@@ -3,6 +3,7 @@
 require_once 'Vue/Vue.php';
 require_once 'Controleur/Controleur.php';
 require_once 'Modele/ModeleConnexion.php';
+require_once 'Modele/ModelePanier.php';
 
 class ControleurAdmin extends Controleur{
 
@@ -38,11 +39,19 @@ class ControleurAdmin extends Controleur{
             }else{
                 $AdminIsLoged = true;
             }
-        }   
+        }
+
+
+        $orderInfos = null;
+        // On verifie si l'utilisateur veut la table ou une commande :
+        if($AdminIsLoged && isset($_GET['order_id'])){
+            $model = new ModelePanier();
+            $orderInfos = $model->GetPanierWithOrderID($_GET['order_id'])->fetchAll()[0];
+        }
         
         // afficher la vue :
         $vue = new Vue("Admin", $this->username);
-        $vue->generer(array("AdminIsConnected"=>$AdminIsLoged, "ERROR"=>$ERROR));
+        $vue->generer(array("orderInfos"=>$orderInfos, "AdminIsConnected"=>$AdminIsLoged, "ERROR"=>$ERROR));
     }
 
 }

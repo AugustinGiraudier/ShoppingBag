@@ -2,6 +2,13 @@
 require_once './Modele/Modele.php';
 class ModelePanier extends Modele {
 
+    public function GetPanierWithOrderID($orderID){
+        $sql = "SELECT p.id, p.name, p.description, p.image, p.price, o.quantity 
+        FROM orderitems o, products p 
+        WHERE o.order_id=:oId AND o.product_id = p.id;";
+        return $this->executerRequete($sql, array("oId"=>$orderID));
+    }
+
     public function GetPanierWithUserId($id){
         $sql1 = "SELECT id, status FROM orders WHERE (status=0 or status=1) AND customer_id=:id";
         $result1 = $this->executerRequete($sql1, array("id"=>$id))->fetchAll();
@@ -11,10 +18,7 @@ class ModelePanier extends Modele {
             $orderID = $result1[0]['id'];
             $status = $result1[0]['status'];
         }
-        $sql = "SELECT p.id, p.name, p.description, p.image, p.price, o.quantity 
-        FROM orderitems o, products p 
-        WHERE o.order_id=:oId AND o.product_id = p.id;";
-        $result = $this->executerRequete($sql, array("oId"=>$orderID));
+        $result = $this->GetPanierWithOrderID($orderID);
         return array('result' =>$result, "orderID" => $orderID, 'orderStatus'=>$status);
     }
     public function GetPanierWithSessionId($sessionID){
@@ -26,10 +30,7 @@ class ModelePanier extends Modele {
             $orderID = $result1[0]['id'];
             $status = $result1[0]['status'];
         }
-        $sql = "SELECT p.id, p.name, p.description, p.image, p.price, o.quantity 
-        FROM orderitems o, products p 
-        WHERE o.order_id=:oId AND o.product_id = p.id;";
-        $result = $this->executerRequete($sql, array("oId"=>$orderID));
+        $result = $this->GetPanierWithOrderID($orderID);
         return array('result' =>$result, "orderID" => $orderID, 'orderStatus'=>$status);
     }
     

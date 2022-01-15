@@ -27,6 +27,7 @@ ob_start("ReturnTable");
           <!-- TITRES -->
 
           <tr>
+            <th class="align-middle" scope="col">Détails</th>
             <th class="align-middle" scope="col">ID Commande</th>
             <th class="align-middle" scope="col">Nom</th>
             <th class="align-middle" scope="col">Adresse</th>
@@ -41,7 +42,10 @@ ob_start("ReturnTable");
           <!-- CONTENU -->
 
           <?php foreach($orders as $order): ?>
-            <tr class="table-sm">
+            <tr style="font-size:0.9em;" class="table-sm">
+              <th class="mt-0 mb-0 align-middle" scope="row"><a class="mt-0 mb-0 text-light" href="index.php?action=admin&order_id=<?=$order['id'] ?>">
+                <img class="mt-0 mb-0" style="height:20px;width:auto;" src="<?= _RESSOURCES_DIR . "/images/eye.svg"?>" alt="">
+              </a></th>
               <th class="align-middle" scope="row"><?= "#" . $order['id'] ?></th>
               <td class="align-middle" scope="row"><?= $order['firstname'] . " " .  $order['lastname']?></td>
               <td class="align-middle" scope="row"><?= $order['add1'] . " - " . $order['city']?></td>
