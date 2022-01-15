@@ -57,6 +57,12 @@
             new FragPopUp("green", "Paiement accepté", 4);
           </script>
           <?php endif;?>
+          
+          <?php if(isset($ERROR)):?>
+          <script>
+            new FragPopUp("red", "<?=$ERROR?>", 4);
+          </script>
+          <?php endif;?>
 
           <!-- Fin Panier -->
           

@@ -10,6 +10,7 @@ class ControleurPanier extends Controleur {
         $step = "";
         $panier = null;
         $arr = null;
+        $ERROR = null;
         $coutTotal = 0;
         $success = false;
 
@@ -63,19 +64,30 @@ class ControleurPanier extends Controleur {
             }
         }
         else if($step == "payement" && isset($_POST['pay'])){
-            var_dump($_POST['pay']);
             if($_POST['pay'] == "cheque" || $_POST['pay'] == "paypal"){
-                $model->setPaiement($_POST['pay'], $arr['orderID']);
-                header("location:" . _BASE_URL . "?action=panier&success_payment=true");
+                $stock_error = $model->removeStocksOfOrder($arr['orderID']);
+                if($stock_error != false){
+                    $model->setPaiement($_POST['pay'], $arr['orderID'], 0);
+                    header("location:" . _BASE_URL . "?action=panier&err=" . $stock_error);
+                    exit();
+                }
+                else{
+                    $model->setPaiement($_POST['pay'], $arr['orderID'], 2);
+                    header("location:" . _BASE_URL . "?action=panier&success_payment=true");
+                    exit();
+                }
             }
         }
 
         if(isset($_GET['success_payment'])){
             $success = true;
         }
+        else if(isset($_GET['err'])){
+            $ERROR = $_GET['err'] . " ne possède plus assez de stock...";
+        }
 
         $vue = new Vue("Panier", $this->username);
-        $vue->generer(array("paySuccess"=>$success,"step" => $step, "tab_panier"=>$panier, "orderID" => $arr['orderID'], "coutTotal" => $coutTotal));
+        $vue->generer(array("ERROR"=> $ERROR, "paySuccess"=>$success,"step" => $step, "tab_panier"=>$panier, "orderID" => $arr['orderID'], "coutTotal" => $coutTotal));
     }
 }
 

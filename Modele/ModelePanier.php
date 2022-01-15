@@ -101,7 +101,9 @@ class ModelePanier extends Modele {
     
     public function deleteOrder($orderID){
         $sql="DELETE FROM orders where id=:id";
-        return $this->executerRequete($sql, array("id"=>$orderID));
+        $this->executerRequete($sql, array("id"=>$orderID));
+        $sql2="DELETE FROM orderitems where order_id=:id";
+        $this->executerRequete($sql2, array("id"=>$orderID));
     }
     
     public function sendOrder($orderID){
@@ -119,8 +121,27 @@ class ModelePanier extends Modele {
         $this->executerRequete($sql2, array("add_id"=>$add_id, "oID"=>$orderID));
     }
     
-    public function setPaiement($paiement, $orderID){
-        $sql = "UPDATE orders SET payment_type=:pay, status=2 where id=:oID";
-        $this->executerRequete($sql, array("oID"=>$orderID, "pay"=>$paiement));
+    public function setPaiement($paiement, $orderID, $statusNumber){
+        $sql = "UPDATE orders SET payment_type=:pay, status=:stat where id=:oID";
+        $this->executerRequete($sql, array("stat"=>$statusNumber, "oID"=>$orderID, "pay"=>$paiement));
+    }
+
+    public function removeStocksOfOrder($orderID){
+        $sql="SELECT p.name, o.product_id, o.quantity from orderitems o, products p where p.id=o.product_id and order_id=:oID";
+        $result = $this->executerRequete($sql, array("oID"=>$orderID))->fetchAll();
+
+        $sql2="SELECT quantity from products where id=:pID";
+        foreach($result as $product){
+            $res = $this->executerRequete($sql2, array("pID"=>$product['product_id']))->fetchAll()[0];
+            if(intval($res['quantity']) < intval($product['quantity'])){
+                return $product['name'];
+            }
+        }
+
+        $sql3 = "UPDATE products SET quantity=(select quantity from products where id=:pID)-:quantity WHERE id=:pID";
+        foreach($result as $product){
+            $this->executerRequete($sql3, array("pID"=>$product['product_id'], "quantity"=>$product['quantity']));
+        }
+        return false;
     }
 }

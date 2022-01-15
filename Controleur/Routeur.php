@@ -30,6 +30,8 @@ class Routeur {
     public function routerRequete() {
         try {
             
+            /* --- Ajax / API --- */
+
             if(isset($_GET['ajax'])){
                 if($_GET['ajax'] == "ajaxAjoutPanier"){
                     require "./Controleur/AjaxAjoutPanier.php";
