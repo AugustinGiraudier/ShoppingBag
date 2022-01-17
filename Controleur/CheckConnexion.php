@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * Fichier de verification de form de connexion.
+ * il attent en POST :
+ *  - l'username
+ *  - le mot de passe
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 session_start();
 $_SESSION["error"] = null;
 

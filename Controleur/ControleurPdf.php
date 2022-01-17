@@ -1,6 +1,12 @@
 <?php 
 
-require_once'./Ressources/fpdf184/fpdf.php';
+/**
+ * Classe de test de la facture PDF.
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
+require_once './Ressources/fpdf184/fpdf.php';
 
 class PDF extends FPDF
 {

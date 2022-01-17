@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Fichier requete Ajax renvoyant la table html des orders en cours.
+ *
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 require_once 'Modele/ModelePanier.php';
 $data = null;
 
@@ -19,6 +25,7 @@ function ReturnTable($buffer){
 $model = new ModelePanier();
 $orders = $model->getOrders()->fetchAll();
 
+// debut écriture dans le buffer :
 ob_start("ReturnTable");
 ?>
 

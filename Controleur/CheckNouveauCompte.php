@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * Fichier de verification de form de nouveau compte.
+ * il attent en POST :
+ *  - l'username
+ *  - le mot de passe
+ *  - la verification du mot de passe
+ *  - le prenom
+ *  - le nom de famille
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 session_start();
 $_SESSION["error"] = null;
 

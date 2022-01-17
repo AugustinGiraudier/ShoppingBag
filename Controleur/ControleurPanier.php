@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Classe Controleur de la page Panier.
+ * Récpère les données utilisateur aupres du modele et les transmet à la vue.
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 require_once 'Vue/Vue.php';
 require_once 'Controleur/Controleur.php';
 require_once 'Modele/ModelePanier.php';
@@ -29,6 +36,7 @@ class ControleurPanier extends Controleur {
             $panier = $result;
         }
 
+        // On vérifie à quelle étape l'utilisateur en est dans sa commande :
         switch($arr["orderStatus"]){
             case 0:
                 if(isset($_GET['setAddress'])){
@@ -58,11 +66,13 @@ class ControleurPanier extends Controleur {
             $_POST['adresse'], $_POST['ville'], $_POST['cp'], $_POST['tel'], $_POST['email']);
             header("location:" . _BASE_URL . "?action=panier");
         }
+        // calcul du cout total :
         else if($step == "panier" && isset($panier)){
             foreach($panier as $product){
                 $coutTotal += floatval($product['price']) * intval($product['quantity']);
             }
         }
+        // cas du paiement et de l'annulation de transaction :
         else if($step == "payement"){
             if(isset($_POST['pay']) && ($_POST['pay'] == "cheque" || $_POST['pay'] == "paypal")){
                 $stock_error = $model->removeStocksOfOrder($arr['orderID']);

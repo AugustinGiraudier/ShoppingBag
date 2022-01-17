@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Classe Routeur
+ * Associe chaque "action" à la bonne route 
+ * que ca soit via les controlleurs ou directement des pages ajax.
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 require_once 'Controleur/ControleurAccueil.php';
 require_once 'Controleur/ControleurConnexion.php';
 require_once 'Controleur/ControleurNouveauCompte.php';
@@ -18,6 +26,7 @@ class Routeur {
     private $ctrlAdmin;
 
     public function __construct() {
+        // instanciation des controleurs :
         $this->ctrlAccueil = new ControleurAccueil();
         $this->ctrlConnexion = new ControleurConnexion();
         $this->ctrlNouveauCompte = new ControleurNouveauCompte();

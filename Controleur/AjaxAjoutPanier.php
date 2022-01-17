@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Fichier requete Ajax traitant l'ajout d'un item au panier.
+ * il attent en GET :
+ *  - l'id du produit
+ *  - la quantité
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 require_once 'Modele/ModelePanier.php';
 $data = null;
 

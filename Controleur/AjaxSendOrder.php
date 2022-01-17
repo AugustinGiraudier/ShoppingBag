@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * Fichier requete Ajax traitant l'envoie d'une commande (par l'admin)
+ * Il attend en GET :
+ *  - l'id de l'order
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 require_once 'Modele/ModelePanier.php';
 $data = null;
 
-// donnees set et utilisateur en droit d'ajouter l'element
+// On vérifié que l'admin est connecté et que les infos GET sont ok :
 if(!isset($_SESSION['admin_id'])
     || !isset($_GET['orderID'])){
     header('Content-type: application/json');
@@ -13,7 +21,7 @@ if(!isset($_SESSION['admin_id'])
     exit();
 }
 
-// on supprime l'order :
+// on envoie l'order :
 $model = new ModelePanier();
 $model->sendOrder($_GET['orderID']);
 

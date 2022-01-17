@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Classe abstraite parente de tous les controleurs.
+ * Centralise la récupération de l'utilisateur et certains outils
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 require_once 'Vue/Vue.php';
 require_once 'Modele/ModeleConnexion.php';
 

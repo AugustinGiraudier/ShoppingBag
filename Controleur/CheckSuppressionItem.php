@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * Fichier de supression d'un item du panier.
+ * il attent en GET :
+ *  - l'id de la commande
+ *  - l'id du produit
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 session_start();
 $_SESSION["error"] = null;
 

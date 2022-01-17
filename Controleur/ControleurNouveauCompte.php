@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Classe Controleur de la page Nouveau Compte.
+ * Vérifie les droits d'acces à la page
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 require_once 'Vue/Vue.php';
 require_once 'Controleur/Controleur.php';
 

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Fichier requete Ajax traitant la supression d'une commande.
+ * il attent en GET :
+ *  - l'id de la commande
+ * 
+ * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
+ */
+
 require_once 'Modele/ModelePanier.php';
 $data = null;
 
