@@ -86,7 +86,7 @@
               }
               
               function DisplayTable(){
-                let url = "http://localhost/index.php?ajax=getAdminTable";
+                let url = "<?= _BASE_URL ?>/index.php?ajax=getAdminTable";
                 
                 fetch(url)
                 .then(async response => {
