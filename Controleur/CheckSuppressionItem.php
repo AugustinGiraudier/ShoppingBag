@@ -28,7 +28,7 @@ require_once "./Modele/ModelePanier.php";
 $model = new ModelePanier();
 
 // verification que la personne a bien cree l'order
-if(isset($_SESSION['user-id'])){
+if(isset($_SESSION['user_id'])){
     $custID = $model->GetCustomerID($orderID)->fetchAll();
     if(count($custID) == 0 || $custID[0]['customer_id'] != $_SESSION['user_id']){
         ReturnPanier();
