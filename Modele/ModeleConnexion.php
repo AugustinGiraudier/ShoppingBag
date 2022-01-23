@@ -43,7 +43,7 @@ class ModeleConnexion extends Modele {
      * @return le PDO statment contenant le résultat de la requete
      */
     public function getLoginAdmin($uname, $psw){
-        return $this->executerRequete("SELECT id FROM admin WHERE username=:uname and password=:psw", array("uname" => $uname, "psw" => $psw));
+        return $this->executerRequete("SELECT id FROM admin WHERE username=:uname and password=SHA1(:psw)", array("uname" => $uname, "psw" => $psw));
     }
 
     /**
