@@ -51,7 +51,7 @@
               DisplayTable();
               
               function DeleteOrder(orderID){
-                let url = "http://localhost/index.php?ajax=supressionOrder&orderID=" + orderID;
+                let url = "<?= _BASE_URL ?>/index.php?ajax=supressionOrder&orderID=" + orderID;
                 
                 fetch(url)
                 .then(async response => {
@@ -68,7 +68,7 @@
                 });
               }
               function SendOrder(orderID){
-                let url = "http://localhost/index.php?ajax=sendOrder&orderID=" + orderID;
+                let url = "<?= _BASE_URL ?>/index.php?ajax=sendOrder&orderID=" + orderID;
                 
                 fetch(url)
                 .then(async response => {
