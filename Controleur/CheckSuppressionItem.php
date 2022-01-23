@@ -24,7 +24,7 @@ if(!isset($_GET['orderId']) || !isset($_GET['itemId'])){
 $orderID = $_GET['orderId'];
 $productID = $_GET['itemId'];
 
-require_once "Modele/ModelePanier.php";
+require_once "./Modele/ModelePanier.php";
 $model = new ModelePanier();
 
 // verification que la personne a bien cree l'order

@@ -8,13 +8,13 @@
  * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
  */
 
-require_once 'Controleur/ControleurAccueil.php';
-require_once 'Controleur/ControleurConnexion.php';
-require_once 'Controleur/ControleurNouveauCompte.php';
-require_once 'Controleur/ControleurPanier.php';
-require_once 'Controleur/ControleurMagasin.php';
-require_once 'Controleur/ControleurAdmin.php';
-require_once 'Vue/Vue.php';
+require_once './Controleur/ControleurAccueil.php';
+require_once './Controleur/ControleurConnexion.php';
+require_once './Controleur/ControleurNouveauCompte.php';
+require_once './Controleur/ControleurPanier.php';
+require_once './Controleur/ControleurMagasin.php';
+require_once './Controleur/ControleurAdmin.php';
+require_once './Vue/Vue.php';
 
 class Routeur {
 

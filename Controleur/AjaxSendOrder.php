@@ -8,7 +8,7 @@
  * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
  */
 
-require_once 'Modele/ModelePanier.php';
+require_once './Modele/ModelePanier.php';
 $data = null;
 
 // On vérifié que l'admin est connecté et que les infos GET sont ok :

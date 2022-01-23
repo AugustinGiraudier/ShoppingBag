@@ -19,7 +19,7 @@
             let pop = new FragPopUp("red", "erreur : Quantité incorrecte", 3);
             return;
           }
-          let url = "http://localhost/index.php?ajax=ajaxAjoutPanier&productID=" + produitID + "&quantity=" + value;
+          let url = "<?= _BASE_URL ?>/index.php?ajax=ajaxAjoutPanier&productID=" + produitID + "&quantity=" + value;
           console.log(url);
           fetch(url)
           .then(async response => {

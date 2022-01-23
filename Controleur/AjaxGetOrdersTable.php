@@ -6,7 +6,7 @@
  * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
  */
 
-require_once 'Modele/ModelePanier.php';
+require_once './Modele/ModelePanier.php';
 $data = null;
 
 // donnees set et utilisateur en droit d'ajouter l'element

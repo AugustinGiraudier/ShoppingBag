@@ -7,8 +7,8 @@
  * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
  */
 
-require_once 'Vue/Vue.php';
-require_once 'Controleur/Controleur.php';
+require_once './Vue/Vue.php';
+require_once './Controleur/Controleur.php';
 
 class ControleurConnexion extends Controleur {
 

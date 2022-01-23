@@ -7,10 +7,10 @@
  * @author Augustin GIRAUDIER & Arthur SECHE-CABOT
  */
 
-require_once 'Vue/Vue.php';
-require_once 'Controleur/Controleur.php';
-require_once 'Modele/ModeleConnexion.php';
-require_once 'Modele/ModelePanier.php';
+require_once './Vue/Vue.php';
+require_once './Controleur/Controleur.php';
+require_once './Modele/ModeleConnexion.php';
+require_once './Modele/ModelePanier.php';
 
 class ControleurAdmin extends Controleur{
 
